@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const auth = require('./routes/auth')
 const passport = require('passport')
 const keys = require('./config/keys')
+const User = require('./models/User')
 require('./config/passport')(passport)
 
 const app = express()
