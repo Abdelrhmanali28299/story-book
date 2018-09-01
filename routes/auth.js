@@ -11,4 +11,12 @@ router.get('/google/callback', passport.authenticate('google', {failureRedirect:
     res.redirect('/')
 })
 
+router.get('/verify', (req, res) => {
+    if(req.user) {
+        console.log(req.user)
+    } else {
+        console.log('Not Auth')
+    }
+})
+
 module.exports = router
