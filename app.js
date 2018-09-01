@@ -20,12 +20,9 @@ mongoose
     console.log(err)
   })
 
-
 app.get('/', (req, res) => {
   res.send('It Works!')
 })
-
-app.use('/auth', auth)
 
 app.use(cookieParser())
 app.use(session({
@@ -36,6 +33,8 @@ app.use(session({
 
 app.use(passport.initialize())
 app.use(passport.session())
+
+app.use('/auth', auth)
 
 const port = process.env.PORT || 5050
 
