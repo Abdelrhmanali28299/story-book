@@ -2,6 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const auth = require('./routes/auth')
 const passport = require('passport')
+const session = require('express-session')
+const cookieParser = require('cookie-parser')
 const keys = require('./config/keys')
 const User = require('./models/User')
 require('./config/passport')(passport)
@@ -24,6 +26,13 @@ app.get('/', (req, res) => {
 })
 
 app.use('/auth', auth)
+
+app.use(cookieParser())
+app.use(session({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false
+}))
 
 app.use(passport.initialize())
 app.use(passport.session())
