@@ -25,6 +25,9 @@ app.get('/', (req, res) => {
 
 app.use('/auth', auth)
 
+app.use(passport.initialize())
+app.use(passport.session())
+
 const port = process.env.PORT || 5050
 
 app.listen(port, () => {
