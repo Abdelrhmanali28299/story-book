@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const auth = require('./routes/auth')
+const index = require('./routes/index')
 const passport = require('passport')
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
@@ -20,10 +21,6 @@ mongoose
     console.log(err)
   })
 
-app.get('/', (req, res) => {
-  res.send('It Works!')
-})
-
 app.use(cookieParser())
 app.use(session({
   secret: 'secret',
@@ -31,11 +28,10 @@ app.use(session({
   saveUninitialized: false
 }))
 
-
-
 app.use(passport.initialize())
 app.use(passport.session())
 
+app.use('/', index)
 app.use('/auth', auth)
 
 const port = process.env.PORT || 5050
