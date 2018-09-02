@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const User = require('../models/User')
-const Story = require('../models/Story')
+const Story = require('../models/story')
 const { ensureAuthenticated } = require('../helpers/auth')
 
 const router = express.Router()
