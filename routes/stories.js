@@ -1,7 +1,7 @@
-const express = require('express');
-const {ensureAuthenticated} = require('../helpers/auth');
-const Story = require('../models/Story');
-const User = require('../models/User');
+const express = require('express')
+const {ensureAuthenticated} = require('../helpers/auth')
+const Story = require('../models/Story')
+const User = require('../models/User')
 
 const router = express.Router()
 
@@ -31,7 +31,7 @@ router.post('/add', (req, res) => {
     story
         .save()
         .then(data => {
-            res.redirect(`/stories/show/${data._id}`)
+            res.redirect(`/stories/show/${data.id}`)
         })
 })
 
