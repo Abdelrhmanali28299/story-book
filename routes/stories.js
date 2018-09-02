@@ -14,7 +14,7 @@ router.get('/add', ensureAuthenticated, (req, res) => {
     res.render('stories/add.ejs')
 })
 
-router.post('/add', (req, res) => {
+router.post('/add', ensureAuthenticated, (req, res) => {
     let allowComments
     if (req.body.allowComments) {
         allowComments = true
