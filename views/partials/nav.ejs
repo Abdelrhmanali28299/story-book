@@ -4,14 +4,16 @@
             <a href="/stories" class="brand-logo center">StoryBooks</a>
             <a href="#" data-activates="main-menu" class="button-collapse show-on-large"><i class="fa fa-bars"></i></a>
             <!-- RIGHT NAV -->
-            <ul class="right hide-on-small-only">
-                <% if (user) { %>
-                <li><a href="/dashboard">Welcome <%= user.firstName %></a></li>
-                <li><a href="/auth/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
-                <% } else if(!user) { %>
-                <li><a href="/stories"><i class="fa fa-book"></i> Public Stories</a></li>
-                <% } %>
-            </ul>
+            <a>
+                <ul class="right hide-on-small-only">
+                    <% if (user) { %>
+                        <li><a href="/dashboard">Welcome <%= user.firstName %></a></li>
+                        <li><a href="/auth/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+                        <% } else if(!user) { %>
+                            <li><a href="/stories"><i class="fa fa-book"></i> Public Stories</a></li>
+                            <% } %>
+                </ul>
+            </a>
         </div>
     </div>
 </nav>
