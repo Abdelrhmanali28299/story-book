@@ -10,8 +10,6 @@ const auth = require('./routes/auth')
 const index = require('./routes/index')
 const stories = require('./routes/stories')
 const keys = require('./config/keys')
-const User = require('./models/User')
-const Story = require('./models/Story')
 require('./config/passport')(passport)
 
 const app = express()
