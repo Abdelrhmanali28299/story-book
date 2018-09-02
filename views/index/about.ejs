@@ -14,10 +14,15 @@
 
 <body>
     <% include ../partials/nav.ejs %>
+    <% if (user) { %>
+        <% include ../partials/add-btn.ejs %>
+    <% } %>
     <main>
-        <h1>About</h1>
-        <p>Version 1.0.0</p>
-        <p>StoryBooks is an app to share your life</p>
+        <div class="container">
+            <h1>About</h1>
+            <p>Version 1.0.0</p>
+            <p>StoryBooks is an app to share your life</p>
+        </div>
     </main>
     <% include ../partials/footer.ejs %>
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>

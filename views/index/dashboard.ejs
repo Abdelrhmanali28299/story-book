@@ -14,6 +14,9 @@
 
 <body>
     <% include ../partials/nav.ejs %>
+    <% if (user) { %>
+        <% include ../partials/add-btn.ejs %>
+    <% } %>
     <main>
         <div class="container">
             <h1>welcome <%= user.firstName %></h1>
