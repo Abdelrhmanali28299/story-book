@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const User = require('../models/User');
+const User = require('../models/User')
 const Story = require('../models/Story')
 const { ensureAuthenticated } = require('../helpers/auth')
 
@@ -15,9 +15,8 @@ router.get('/add', ensureAuthenticated, (req, res) => {
 })
 
 router.post('/add', (req, res) => {
-    console.log(req.body)
-    /*
-    let allowComments
+    console.log(req.body);
+    let allowComments;
     if (req.body.allowComments) {
         allowComments = true
     } else {
@@ -36,7 +35,6 @@ router.post('/add', (req, res) => {
         .then(data => {
             res.redirect(`/stories/show/${data.id}`)
         })
-    */
 })
 
 module.exports = router
