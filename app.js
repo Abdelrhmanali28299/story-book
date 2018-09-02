@@ -6,17 +6,16 @@ const cookieParser = require('cookie-parser')
 const ejs = require('ejs')
 const path = require('path')
 const bodyParser = require('body-parser')
-//const Story = require('./models/Story')
-const User = require('./models/User')
-const keys = require('./config/keys')
 const auth = require('./routes/auth')
 const index = require('./routes/index')
 const stories = require('./routes/stories')
+const keys = require('./config/keys')
+const User = require('./models/User')
 require('./config/passport')(passport)
 
 const app = express()
 mongoose.Promise = global.Promise
-
+  
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
@@ -50,7 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', index)
 app.use('/auth', auth)
-//app.use('/stories', stories)
+app.use('/stories', stories)
 
 const port = process.env.PORT || 5050
 
