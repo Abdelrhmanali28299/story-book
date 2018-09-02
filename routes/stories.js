@@ -1,5 +1,5 @@
 const express = require('express')
-const {ensureAuthenticated} = require('../helpers/auth')
+const { ensureAuthenticated } = require('../helpers/auth')
 const mongoose = require('mongoose')
 const Story = require('../models/Story')
 const User = require('../models/User')
@@ -16,7 +16,7 @@ router.get('/add', ensureAuthenticated, (req, res) => {
 
 router.post('/add', (req, res) => {
     let allowComments
-    if(req.body.allowComments) {
+    if (req.body.allowComments) {
         allowComments = true
     } else {
         allowComments = false
