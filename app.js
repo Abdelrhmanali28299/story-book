@@ -34,13 +34,15 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use('/', index)
-app.use('/auth', auth)
 
 app.use((req, res, next) => {
-  res.locals.user = req.user || null;
-  next();
-});
+  res.locals.user = req.user || null
+  next()
+})
+
+
+app.use('/', index)
+app.use('/auth', auth)
 
 const port = process.env.PORT || 5050
 
