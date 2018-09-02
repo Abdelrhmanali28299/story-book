@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser')
 const ejs = require('ejs')
 const auth = require('./routes/auth')
 const index = require('./routes/index')
+const stories = require('./routes/stories')
 const keys = require('./config/keys')
 const User = require('./models/User')
 require('./config/passport')(passport)
@@ -43,6 +44,7 @@ app.use((req, res, next) => {
 
 app.use('/', index)
 app.use('/auth', auth)
+app.use('/stories', stories)
 
 const port = process.env.PORT || 5050
 
