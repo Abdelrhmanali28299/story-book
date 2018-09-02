@@ -14,6 +14,9 @@
 
 <body>
     <% include ../partials/nav.ejs %>
+    <% if (user) { %>
+        <% include ../partials/add-btn.ejs %>
+    <% } %>
     <main>
         <div class="container">
             <h4>index</h4>
