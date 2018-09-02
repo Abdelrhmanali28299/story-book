@@ -27,8 +27,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script>
-        $(document).ready(() => {
-            $('.button-collapse').sideNav();
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.button-collapse');
+            var instances = M.Sidenav.init(elems, options);
         });
     </script>
 </body>
