@@ -1,6 +1,6 @@
 const express = require('express')
 const {ensureAuthenticated} = require('../helpers/auth')
-const User = require('./models/User')
+const User = require('../models/User')
 const Story = require('../models/Story')
 
 const router = express.Router()
