@@ -19,8 +19,44 @@
     <% } %>
     <main>
         <div class="container">
-            <h1>welcome <%= user.firstName %></h1>
-            <h4>add</h4>
+            <h1>Add Story</h1>
+            <div class="row">
+                <form action="/stories" method="post" class="col s12">
+                <div class="row">
+                    <div class="input-field">
+                    <input type="text" name="title">
+                    <label for="title">Title</label>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="input-field">
+                    <select name="status">
+                        <option value="public" selected>Public</option>
+                        <option value="private">Private</option>
+                        <option value="unpublished">Unpublished</option>
+                    </select>
+                    <label for="status">Status</label>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <p>
+                    <input type="checkbox" name="allowComments" class="filled-in" id="filled-in-box" checked="checked">
+                    <label for="allowComments">Allow Comments</label>
+                    </p>
+                </div>
+            
+                <div class="row">
+                    <div class="input-field">
+                    <h5>Tell Us Your Story:</h5>
+                    <textarea name="body"></textarea>
+                    </div>
+                </div>
+            
+                <input type="submit" value="Save" class="btn">
+                </form>
+            </div>
         </div>
     </main>
     <% include ../partials/footer.ejs %>
@@ -29,6 +65,7 @@
     <script>
         $(document).ready(() => {
             $('.button-collapse').sideNav();
+            $('select').material_select();
         });
     </script>
 </body>
