@@ -5,6 +5,7 @@ const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const ejs = require('ejs')
 const path = require('path')
+const bodyParser = require('body-parser')
 const auth = require('./routes/auth')
 const index = require('./routes/index')
 const stories = require('./routes/stories')
@@ -14,6 +15,9 @@ require('./config/passport')(passport)
 
 const app = express()
 mongoose.Promise = global.Promise
+  
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 mongoose
   .connect(keys.mongoURI, { useMongoClient: true })

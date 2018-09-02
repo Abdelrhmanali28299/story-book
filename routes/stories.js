@@ -10,4 +10,9 @@ router.get('/add', ensureAuthenticated, (req, res) => {
     res.render('stories/add.ejs')
 })
 
+router.post('/add', (req, res) => {
+    console.log(req.body)
+    res.send('lol')
+})
+
 module.exports = router
