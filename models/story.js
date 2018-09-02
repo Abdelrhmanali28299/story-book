@@ -42,6 +42,6 @@ const storySchema = new Schema({
     }
 })
 
-const modelClass = mongoose.model('stories', storySchema, 'stories')
+const modelClass = mongoose.model('stories', storySchema)
 
 module.exports = modelClass
