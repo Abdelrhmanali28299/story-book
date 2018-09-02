@@ -1,12 +1,12 @@
 const express = require('express')
-const passport = require('passport')
+const {ensureAuthenticated} = require('../helpers/auth')
 const router = express.Router()
 
 router.get('/', (req, res) => {
     res.render('stories/index')
 })
 
-router.get('/add', (req, res) => {
+router.get('/add', ensureAuthenticated, (req, res) => {
     res.render('stories/add.ejs')
 })
 
