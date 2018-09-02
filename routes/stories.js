@@ -33,7 +33,7 @@ router.post('/add', (req, res) => {
     story
         .save()
         .then(data => {
-            res.redirect(`/stories/show/${data.id}`)
+            res.redirect(`/stories/show/${data._id}`)
         })
 })
 
