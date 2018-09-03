@@ -81,7 +81,7 @@ router.delete('/delete/:id', (req, res) => {
         })
 })
 
-router.post('/stories/comment/:id', (req, res) => {
+router.post('/comment/:id', (req, res) => {
     Story
         .findOne({ _id: req.params.id})
         .then(story => {
