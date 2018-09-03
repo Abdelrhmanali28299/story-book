@@ -34,7 +34,7 @@
                         <% stories.forEach(function(story){ %>
                             <tr>
                                 <td><a href="/stories/show/<%=story._id%>"><%= story.title %></a></td>
-                                <td><%= story.date.toLocaleTimeString().substr(0, story.date.toLocaleTimeString().lastIndexOf(' ') %> : <%= story.date.toLocaleDateString() %></td>
+                                <td><%= story.date.toLocaleTimeString().substr(0, story.date.toLocaleTimeString().lastIndexOf(' ')) %> : <%= story.date.toLocaleDateString() %></td>
                                 <td><span class="dash-status"><%= story.status %></span></td>
                                 <td>
                                     <a class="btn left-align" href="/stories/edit/<%=story._id%>"><i class="fa fa-pencil"></i> Edit</a>
