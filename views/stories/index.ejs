@@ -20,7 +20,9 @@
     <main>
         <div class="container">
             <h1>Stories</h1>
-            <% if (stories && stories.length > 0) {%>
+            <% if (stories.length == 0) {%>
+                <p>No Stories Found</p>
+            <% } else if (stories.length >= 0) {%>
                 <% for (let i=0; i < stories.lenght; i++) { %>
                     <div class="col s12 m4">
                         <div class="card">
@@ -30,8 +32,6 @@
                         </div>
                     </div>
                 <% } %>
-            <% } else if (!stories || stories.length <= 0) {%>
-                <p>No Stories Found</p>
             <% } %>
         </div>
     </main>
