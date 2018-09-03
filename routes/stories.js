@@ -7,7 +7,11 @@ const { ensureAuthenticated } = require('../helpers/auth')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-    res.render('stories/index')
+    Story
+        .find({ status: 'public' })
+        .then(data => {
+            res.render('stories/index',{stories: data})
+        })
 })
 
 router.get('/add', ensureAuthenticated, (req, res) => {

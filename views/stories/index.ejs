@@ -19,7 +19,21 @@
     <% } %>
     <main>
         <div class="container">
-            <h4>index</h4>
+            <h1>Stories</h1>
+            <% if (stories && stories.length > 0) {%>
+                <% for (let i=0; i < stories.lenght; i++) { %>
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-content center-align">
+                                <h5><%= stories[i].title %></h5>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            <% } %>
+            <% else {%>
+                <p>No Stories Found</p>
+            <% } %>
         </div>
     </main>
     <% include ../partials/footer.ejs %>
