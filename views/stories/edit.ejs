@@ -22,7 +22,7 @@
         <div class="container">
             <h1>Edit Story</h1>
             <div class="row">
-                <form action="/stories/edit/:<%= story._id %>?_method=PUT" method="post" class="col s12">
+                <form action="/stories/edit/<%=story._id%>?_method=PUT" method="post" class="col s12">
                     <input type="hidden" name="_method" value="PUT">
                     <div class="row">
                         <div class="input-field">
