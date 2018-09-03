@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
         .populate('user')
         .then(data => {
             console.log(data)
-            res.render('stories/index',{stories: data})
+            res.render('stories/index', { stories: data })
         })
 })
 
@@ -40,6 +40,15 @@ router.post('/add', (req, res) => {
         .save()
         .then(data => {
             res.redirect(`/stories/show/${data._id}`)
+        })
+})
+
+router.get('/show/:id', (req, res) => {
+    Story
+        .findOne({ _id: req.params.id })
+        .populate('user')
+        .then((data) => {
+            res.render('stories/show', {story: data})
         })
 })
 
