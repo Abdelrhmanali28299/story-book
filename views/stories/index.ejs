@@ -21,35 +21,37 @@
     <main>
         <div class="container">
             <h1>Stories</h1>
-            <% if (stories.length == 0) {%>
-                <p>No Stories Found</p>
-            <% } else if (stories.length >= 0) {%>
-                <% stories.forEach(function(story){ %>
-                    <div class="col s12 m4">
-                        <div class="card">
-                            <div class="card-image">
-                                <a href="/stories/edit/<%= story._id %>" class="btn-floating halfway-fab red">
-                                    <i class="fa fa-pencil"></i>
-                                </a>
-                            </div>
-                            <div class="card-content center-align">
-                                <h5><%= story.title %></h5>
-                                <p class="story-text"><%- truncate(stripTags(story.body), 150) %></p>
-                                <br>
-                                <div class="chip">
-                                    <img src="<%= story.user.image %>">
-                                    <%= story.user.firstName %> <%= story.user.lastName %>
+            <div class="row">
+                <% if (stories.length == 0) {%>
+                    <p>No Stories Found</p>
+                <% } else if (stories.length >= 0) {%>
+                    <% stories.forEach(function(story){ %>
+                        <div class="col s12 m4">
+                            <div class="card">
+                                <div class="card-image">
+                                    <a href="/stories/edit/<%= story._id %>" class="btn-floating halfway-fab red">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
                                 </div>
-                            </div>
-                            <div class="card-action center-align">
-                                <div class="btn grey" href="/stories/show/<%= story._id %>">
-                                    Read More
+                                <div class="card-content center-align">
+                                    <h5><%= story.title %></h5>
+                                    <p class="story-text"><%- truncate(stripTags(story.body), 150) %></p>
+                                    <br>
+                                    <div class="chip">
+                                        <img src="<%= story.user.image %>">
+                                        <%= story.user.firstName %> <%= story.user.lastName %>
+                                    </div>
+                                </div>
+                                <div class="card-action center-align">
+                                    <div class="btn grey" href="/stories/show/<%= story._id %>">
+                                        Read More
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                <% }); %>
-            <% } %>
+                    <% }); %>
+                <% } %>
+            </div>
         </div>
     </main>
     <% include ../partials/footer.ejs %>
