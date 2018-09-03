@@ -38,7 +38,7 @@
                                 <td><span class="dash-status"><%= story.status %></span></td>
                                 <td>
                                     <a class="btn left-align" href="/stories/edit/<%=story._id%>"><i class="fa fa-pencil"></i> Edit</a>
-                                    <form action="/stories/delete/<%=story._id%>?_method=DELETE" method="POST" id="delete-form">
+                                    <form action="/stories/{{id}}?_method=DELETE" method="post" id="delete-form">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <button type="submit" class="btn red"><i class="fa fa-remove"></i> Delete</button>
                                     </form>
