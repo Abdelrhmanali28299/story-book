@@ -17,6 +17,7 @@
     <% if (user) { %>
         <% include ../partials/add-btn.ejs %>
     <% } %>
+    <% include functions.ejs %>
     <main>
         <div class="container">
             <h1>Stories</h1>
@@ -33,7 +34,7 @@
                             </div>
                             <div class="card-content center-align">
                                 <h5><%= story.title %></h5>
-                                <p class="story-text"><%- story.body %></p>
+                                <p class="story-text"><%- truncate(stripTags(story.body), 150) %></p>
                                 <br>
                                 <div class="chip">
                                     <img src="<%= story.user.image %>">
