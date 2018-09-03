@@ -75,9 +75,26 @@ router.put('/edit/:id', ensureAuthenticated, (req, res) => {
 
 router.delete('/delete/:id', (req, res) => {
     Story
-        .remove({_id: req.params.id})
+        .remove({ _id: req.params.id })
         .then(() => {
             res.redirect('/dashboard')
+        })
+})
+
+router.post('/stories/comment/:id', (req, res) => {
+    Story
+        .findOne({ _id: req.params.id})
+        .then(story => {
+            let newComment = {
+                commentBody: req.body.commentBody,
+                commentUser: req.user.id
+            }
+            story.comments.unshift(newComment)
+            story
+                .save()
+                .then(story => {
+                    res.redirect(`/stories/show/${story._id}`)
+                })
         })
 })
 
