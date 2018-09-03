@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
     Story
         .find({ status: 'public' })
         .then(data => {
+            console.log(data)
             res.render('stories/index',{stories: data})
         })
 })
