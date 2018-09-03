@@ -19,8 +19,29 @@
     <% } %>
     <main>
         <div class="container">
-            <h1>welcome <%= user.firstName %></h1>
-            <h4>your stories here</h4>
+            <% if (stories.length == 0) { %>
+                <p>you don't have any story</p>
+            <% } else if (stories.length >= 0) {%>
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% stories.forEach(function(story){ %>
+                            <tr>
+                                <td><a href="/stories/show/<%=story._id%>"><%= story.title %></a></td>
+                                <td><%= story.date.toLocaleTimeString() : story.date.toLocaleDateString() %></td>
+                                <td><span class="dash-status"><%= story.status %></span></td>
+                                <td><a class="btn left-align" href="/stories/edit/<%=story._id%>"><i class="fa fa-pencil"></i> Edit</a></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            <% } %>
         </div>
     </main>
     <% include ../partials/footer.ejs %>
