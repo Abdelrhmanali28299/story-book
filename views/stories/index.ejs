@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="card-content center-align">
                                     <h5><%= story.title %></h5>
-                                    <p class="story-text"><%- truncate(stripTags(story.body), 150) %></p>
+                                    <p class="story-text"><%= truncate(stripTags(story.body), 150) %></p>
                                     <br>
                                     <div class="chip">
                                         <img src="<%= story.user.image %>">
@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                         </div>
-                    <% }); %>
+                    <% }) %>
                 <% } %>
             </div>
         </div>
