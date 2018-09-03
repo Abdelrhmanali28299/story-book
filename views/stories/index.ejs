@@ -30,8 +30,7 @@
                         </div>
                     </div>
                 <% } %>
-            <% } %>
-            <% else {%>
+            <% } else if (!stories || stories.length <= 0) {%>
                 <p>No Stories Found</p>
             <% } %>
         </div>
