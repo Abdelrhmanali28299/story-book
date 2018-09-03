@@ -67,7 +67,7 @@
         $(document).ready(() => {
             $('.button-collapse').sideNav();
             $('select').material_select();
-            $('.sel').children("option").val('<%=story.status%>');
+            $('.sel').prop(selectedIndex,'2')
         });
         CKEDITOR.replace('body',{plugins: 'wysiwygarea,toolbar,basicstyles,link'});
     </script>
