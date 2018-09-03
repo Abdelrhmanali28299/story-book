@@ -23,15 +23,15 @@
             <% if (stories.length == 0) {%>
                 <p>No Stories Found</p>
             <% } else if (stories.length >= 0) {%>
-                <% for (let i=0; i < stories.lenght; i++) { %>
+                <% stories.forEach(function(story){ %>
                     <div class="col s12 m4">
                         <div class="card">
                             <div class="card-content center-align">
-                                <h5><%= stories[i].title %></h5>
+                                <h5><%= story.title %></h5>
                             </div>
                         </div>
                     </div>
-                <% } %>
+                <% }); %>
             <% } %>
         </div>
     </main>
