@@ -20,7 +20,7 @@ router.get('/add', ensureAuthenticated, (req, res) => {
     res.render('stories/add.ejs')
 })
 
-router.post('/add', (req, res) => {
+router.post('/add', ensureAuthenticated, (req, res) => {
     console.log(req.body);
     let allowComments;
     if (req.body.allowComments) {
@@ -40,6 +40,15 @@ router.post('/add', (req, res) => {
         .save()
         .then(data => {
             res.redirect(`/stories/show/${data._id}`)
+        })
+})
+
+router.get('/edit/:id', ensureAuthenticated,(req, res) => {
+    Story
+        .findOne({ _id: req.params.id })
+        .populate('user')
+        .then((data) => {
+            res.render('stories/edit', {story: data})
         })
 })
 
