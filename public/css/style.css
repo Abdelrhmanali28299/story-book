@@ -24,3 +24,7 @@ footer {
 .dash-status {
   text-transform: capitalize;
 }
+
+#delete-form {
+  display: inline;
+}
