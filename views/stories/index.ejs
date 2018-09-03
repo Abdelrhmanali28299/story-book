@@ -30,6 +30,10 @@
                                 <h5><%= story.title %></h5>
                                 <p class="story-text"><%- story.body %></p>
                                 <br>
+                                <div class="chip">
+                                    <img src="<%= story.user.image %>">
+                                    <%= story.user.firstName %> <%= story.user.lastName %>
+                                </div>
                             </div>
                         </div>
                     </div>

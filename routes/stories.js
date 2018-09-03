@@ -9,6 +9,7 @@ const router = express.Router()
 router.get('/', (req, res) => {
     Story
         .find({ status: 'public' })
+        .populate('user')
         .then(data => {
             console.log(data)
             res.render('stories/index',{stories: data})
