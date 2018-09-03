@@ -26,6 +26,11 @@
                 <% stories.forEach(function(story){ %>
                     <div class="col s12 m4">
                         <div class="card">
+                            <div class="card-image">
+                                <a href="/stories/edit/<%= story._id %>" class="btn-floating halfway-fab red">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                            </div>
                             <div class="card-content center-align">
                                 <h5><%= story.title %></h5>
                                 <p class="story-text"><%- story.body %></p>
@@ -33,6 +38,11 @@
                                 <div class="chip">
                                     <img src="<%= story.user.image %>">
                                     <%= story.user.firstName %> <%= story.user.lastName %>
+                                </div>
+                            </div>
+                            <div class="card-action center-align">
+                                <div class="btn grey" href="/stories/show/<%= story._id %>">
+                                    Read More
                                 </div>
                             </div>
                         </div>
