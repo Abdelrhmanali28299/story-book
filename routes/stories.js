@@ -21,8 +21,7 @@ router.get('/add', ensureAuthenticated, (req, res) => {
 })
 
 router.post('/add', ensureAuthenticated, (req, res) => {
-    console.log(req.body);
-    let allowComments;
+    let allowComments
     if (req.body.allowComments) {
         allowComments = true
     } else {
@@ -43,12 +42,34 @@ router.post('/add', ensureAuthenticated, (req, res) => {
         })
 })
 
-router.get('/edit/:id', ensureAuthenticated,(req, res) => {
+router.get('/edit/:id', ensureAuthenticated, (req, res) => {
     Story
         .findOne({ _id: req.params.id })
         .populate('user')
         .then((data) => {
-            res.render('stories/edit', {story: data})
+            res.render('stories/edit', { story: data })
+        })
+})
+
+router.put('/edit/:id', ensureAuthenticated, (req, res) => {
+    Story
+        .findOne({ _id: req.params.id })
+        .then((data) => {
+            let allowComments
+            if (req.body.allowComments) {
+                allowComments = true
+            } else {
+                allowComments = false
+            }
+            data.title = req.body.title
+            data.body = req.body.body
+            data.status = req.body.status
+            data.allowComments = allowComments
+            data
+                .save()
+                .then(story => {
+                    res.redirect('/dashboard')
+                })
         })
 })
 
@@ -57,7 +78,7 @@ router.get('/show/:id', (req, res) => {
         .findOne({ _id: req.params.id })
         .populate('user')
         .then((data) => {
-            res.render('stories/show', {story: data})
+            res.render('stories/show', { story: data })
         })
 })
 

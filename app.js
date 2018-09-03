@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser')
 const ejs = require('ejs')
 const path = require('path')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 const auth = require('./routes/auth')
 const index = require('./routes/index')
 const stories = require('./routes/stories')
@@ -19,6 +20,8 @@ mongoose.Promise = global.Promise
   
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
+app.use(methodOverride('_method'))
 
 mongoose
   .connect(keys.mongoURI, { useMongoClient: true })
