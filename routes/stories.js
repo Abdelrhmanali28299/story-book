@@ -73,6 +73,14 @@ router.put('/edit/:id', ensureAuthenticated, (req, res) => {
         })
 })
 
+router.delete('/delete/:id', (req, res) => {
+    Story
+        .remove({_id: req.params.id})
+        .then(() => {
+            res.redirect('/dashboard')
+        })
+})
+
 router.get('/show/:id', (req, res) => {
     Story
         .findOne({ _id: req.params.id })
