@@ -75,7 +75,7 @@ router.put('/edit/:id', ensureAuthenticated, (req, res) => {
         })
 })
 
-router.delete('/delete/:id', (req, res) => {
+router.delete('/delete/:id', ensureAuthenticated, (req, res) => {
     Story
         .remove({ _id: req.params.id })
         .then(() => {
@@ -83,7 +83,7 @@ router.delete('/delete/:id', (req, res) => {
         })
 })
 
-router.post('/comment/:id', (req, res) => {
+router.post('/comment/:id', ensureAuthenticated, (req, res) => {
     Story
         .findOne({ _id: req.params.id })
         .then(story => {
@@ -115,6 +115,17 @@ router.get('/user/:id', (req, res) => {
         .find({
             user: req.params.id,
             status: 'public'
+        })
+        .populate('user')
+        .then((stories) => {
+            res.render('stories/index', { stories })
+        })
+})
+
+router.get('/my', ensureAuthenticated, (req, res) => {
+    Story
+        .find({
+            user: req.user.id
         })
         .populate('user')
         .then((stories) => {
