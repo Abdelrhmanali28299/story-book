@@ -47,7 +47,11 @@ router.get('/edit/:id', ensureAuthenticated, (req, res) => {
         .findOne({ _id: req.params.id })
         .populate('user')
         .then((data) => {
-            res.render('stories/edit', { story: data })
+            if (data.user !== req.user.id) {
+                res.redirect('/stories')
+            } else {
+                res.render('stories/edit', { story: data })
+            }
         })
 })
 
@@ -83,7 +87,7 @@ router.delete('/delete/:id', (req, res) => {
 
 router.post('/comment/:id', (req, res) => {
     Story
-        .findOne({ _id: req.params.id})
+        .findOne({ _id: req.params.id })
         .then(story => {
             let newComment = {
                 commentBody: req.body.commentBody,
