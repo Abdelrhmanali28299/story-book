@@ -55,7 +55,9 @@
                                     <h5><%= comment.commentBody %></h5>
                                     <div class="chip">
                                         <img src="<%=comment.commentUser.image%>" alt="">
-                                        <%=comment.commentUser.firstName%> <%=comment.commentUser.lastName%>
+                                        <a href="/stories/user/<%=story.user._id%>">
+                                            <%=comment.commentUser.firstName%> <%=comment.commentUser.lastName%>
+                                        </a>
                                     </div>
                                     <br>
                                     <small>
