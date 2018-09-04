@@ -39,7 +39,7 @@
                                     <br>
                                     <div class="chip">
                                         <img src="<%= story.user.image %>">
-                                        <%= story.user.firstName %> <%= story.user.lastName %>
+                                        <a href="/stories/user/<%=story.user._id%>"><%= story.user.firstName %> <%= story.user.lastName %></a>
                                     </div>
                                 </div>
                                 <div class="card-action center-align">
