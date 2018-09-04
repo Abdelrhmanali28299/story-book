@@ -110,4 +110,16 @@ router.get('/show/:id', (req, res) => {
         })
 })
 
+router.get('/user/:id', (req, res) => {
+    Story
+        .find({
+            user: req.params.id,
+            status: 'public'
+        })
+        .populate('user')
+        .then((stories) => {
+            res.render('stories/index', { stories })
+        })
+})
+
 module.exports = router
