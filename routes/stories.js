@@ -106,7 +106,15 @@ router.get('/show/:id', (req, res) => {
         .populate('user')
         .populate('comments.commentUser')
         .then((data) => {
-            res.render('stories/show', { story: data })
+            if (data.status == 'public') {
+                res.render('stories/show', { story: data })
+            } else {
+                if (req.user && req.user.id == data.user._id) {
+                    res.render('stories/show', { story: data })
+                } else {
+                    res.redirect('/stories')
+                }
+            }
         })
 })
 

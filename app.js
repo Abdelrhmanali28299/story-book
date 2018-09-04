@@ -17,7 +17,7 @@ require('./config/passport')(passport)
 
 const app = express()
 mongoose.Promise = global.Promise
-  
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
