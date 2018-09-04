@@ -47,7 +47,7 @@ router.get('/edit/:id', ensureAuthenticated, (req, res) => {
         .findOne({ _id: req.params.id })
         .populate('user')
         .then((data) => {
-            if (data.user !== req.user.id) {
+            if (data.user._id !== req.user.id) {
                 res.redirect('/stories')
             } else {
                 res.render('stories/edit', { story: data })
