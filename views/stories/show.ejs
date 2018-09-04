@@ -45,6 +45,21 @@
                                 <p>please <a href="/auth/google">login</a> to leave a comment</p>
                             <% } %>
                         </div>
+                        <% story.comments.forEach(function(comment) { %>
+                            <div class="card">
+                                <div class="card-content">
+                                    <h5><%= comment.commentBody %></h5>
+                                    <div class="chip">
+                                        <img src="<%=comment.commentUser.img%>" alt="">
+                                        <%=comment.commentUser.firstName%> <%=comment.commentUser.lastName%>
+                                    </div>
+                                    <br>
+                                    <small>
+                                        posted: <%=comment.commentDate.toLocaleDateString()%>
+                                    </small>
+                                </div>
+                            </div>
+                        <% }) %>
                     <% } %>
                 </div>
                 <div class="col s12 m4">

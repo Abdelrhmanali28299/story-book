@@ -102,6 +102,7 @@ router.get('/show/:id', (req, res) => {
     Story
         .findOne({ _id: req.params.id })
         .populate('user')
+        .populate('comments.commentUser')
         .then((data) => {
             res.render('stories/show', { story: data })
         })
