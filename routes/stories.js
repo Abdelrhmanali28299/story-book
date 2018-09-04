@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
         .find({ status: 'public' })
         .populate('user')
         .then(data => {
-            console.log(data)
             res.render('stories/index', { stories: data })
         })
 })
